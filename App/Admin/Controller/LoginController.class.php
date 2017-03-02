@@ -130,11 +130,9 @@ class LoginController extends Controller{
             session('id',$id);
             session('name',$name);
             session('info',$arr);
-            if($rem){
-                session('userinfo.name',$name);
-                session('userinfo.pwd',$pwd);
-                session('userinfo.lasttime',$lastTime);
-            }
+            session('userinfo.name',$name);
+            session('userinfo.pwd',$pwd);
+            session('userinfo.lasttime',$lastTime);
             if(!empty($pwd) && $rem){
                 session('status',1);
             }else{
