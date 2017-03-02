@@ -1,0 +1,36 @@
+[ 2016-10-04T10:44:12+08:00 ] 127.0.0.1 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000057s ]
+ERR: 无法加载模块:Favicon
+
+[ 2016-10-04T11:07:31+08:00 ] 127.0.0.1 /%3Cpre%3E%3Cpre%3E%20Array(%20%20%20%20[title]%20=&gt;%20fasdfas%20%20%20%20[keywords]%20=&gt;%20asfa%20%20%20%20[preread]%20=&gt;%20sadf%20%20%20%20[status]%20=&gt;%20on%20%20%20%20[content]%20=&gt;%20%20%20%20%20[auid]%20=&gt;%203%20%20%20%20[cid]%20=&gt;%2013%20%20%20%20[aimg]%20=&gt;%20/Data/Upload/2016-10-04/57f31a7e69e17.jpg%20%20%20%20[wtime]%20=&gt;%201475550451)%3C/pre%3E
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000056s ]
+ERR: 无法加载模块: Array(    [title] =&gt; fasdfas    [keywords] =&gt; asfa    [preread] =&gt; sadf    [status] =&gt; on    [content] =&gt;     [auid] =&gt; 3    [cid] =&gt; 13    [aimg] =&gt; 
+
+[ 2016-10-04T11:12:36+08:00 ] 127.0.0.1 /%3Cpre%3E%3Cpre%3E%20Array(%20%20%20%20[title]%20=&gt;%20%20%20%20%20[uname]%20=&gt;%20%20%20%20%20[select]%20=&gt;%20%E6%96%87%E7%AB%A0%E5%88%86%E7%B1%BB%20%20%20%20[keywords]%20=&gt;%20%20%20%20%20[preread]%20=&gt;%20%20%20%20%20[status]%20=&gt;%20on%20%20%20%20[content]%20=&gt;%20)%3C/pre%3E
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000060s ]
+ERR: 无法加载模块: Array(    [title] =&gt;     [uname] =&gt;     [select] =&gt; 文章分类    [keywords] =&gt;     [preread] =&gt;     [status] =&gt; on    [content] =&gt; )
+
+[ 2016-10-04T11:23:46+08:00 ] 127.0.0.1 /%3Cpre%3E%3Cpre%3E%20Array(%20%20%20%20[title]%20=&gt;%20sfsafva%20%20%20%20[uname]%20=&gt;%20zv%20xcv%20%20%20%20[select]%20=&gt;%203%20%20%20%20[keywords]%20=&gt;%20%20%20%20%20[preread]%20=&gt;%20%20%20%20%20[status]%20=&gt;%200%20%20%20%20[content]%20=&gt;%20)%3C/pre%3E
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000085s ]
+ERR: 无法加载模块: Array(    [title] =&gt; sfsafva    [uname] =&gt; zv xcv    [select] =&gt; 3    [keywords] =&gt;     [preread] =&gt;     [status] =&gt; 0    [content] =&gt; )
+
+[ 2016-10-04T11:24:25+08:00 ] 127.0.0.1 /%3Cpre%3E%3Cpre%3E%20Array(%20%20%20%20[title]%20=&gt;%20%20%20%20%20[uname]%20=&gt;%20%20%20%20%20[select]%20=&gt;%20%E6%96%87%E7%AB%A0%E5%88%86%E7%B1%BB%20%20%20%20[keywords]%20=&gt;%20%20%20%20%20[preread]%20=&gt;%20%20%20%20%20[status]%20=&gt;%20on%20%20%20%20[content]%20=&gt;%20)%3C/pre%3E
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000054s ]
+ERR: 无法加载模块: Array(    [title] =&gt;     [uname] =&gt;     [select] =&gt; 文章分类    [keywords] =&gt;     [preread] =&gt;     [status] =&gt; on    [content] =&gt; )
+
+[ 2016-10-04T15:57:03+08:00 ] 127.0.0.1 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000097s ]
+ERR: 无法加载模块:Favicon
+

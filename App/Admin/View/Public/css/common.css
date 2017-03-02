@@ -1,0 +1,21 @@
+@charset "utf-8";
+*{
+	margin:0;
+	padding:0;
+}
+ul.forminfo li{
+	width:700px;
+	position:relative;
+}
+.png{
+	margin-left:5px;
+	position:relative;
+	top:3px;
+}
+.app{
+	position:absolute;
+	right:12px;
+	top:9px;
+	color:red;
+	font-size:12px;
+}

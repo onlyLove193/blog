@@ -1,0 +1,17 @@
+[ 2017-03-02T18:58:06+08:00 ] 127.0.0.1 /Admin/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000072s ]
+INFO: [ app_init ] --END-- [ RunTime:0.057258s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.018856s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.019273s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.034021s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.034283s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.146348s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.146665s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.028265s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.028499s ]
+

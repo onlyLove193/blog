@@ -1,0 +1,9 @@
+@charset "utf-8";
+#upload{height:30px;line-height:30px;padding-top:7px;}
+#upload input{float:left;}
+.progress{display:none;}
+.bar {float:left;background-color: green; display:block; width:0px; height:20px; border-radius: 3px; }
+.percent {display:none;border:1px solid blue;width:120px;height:20px; float:left;color:#fff }
+.back{width:200px;height:20px;float:left;color:red;}
+.files{display:none;float:left;height:20px;width:200px; line-height:20px;}
+/*#edi{position:relative;top:-65px;}*/
