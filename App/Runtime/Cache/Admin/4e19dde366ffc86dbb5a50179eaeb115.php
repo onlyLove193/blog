@@ -25,12 +25,12 @@ $(function(){
     </div>
         
     <ul class="nav">
-    <li><a href="<?php echo U('Default/index');?>" target="rightFrame" class="selected"><!--img src="/App/Admin/View/Public/images/icon01.png" title="工作台" /--><h2>后台首页</h2></a></li>
-    <li><a href="<?php echo U('Image/index');?>" target="rightFrame"><!--img src="/App/Admin/View/Public/images/icon02.png" title="模型管理" /--><h2>模型管理</h2></a></li>
-    <li><a href="<?php echo U('Imagelist/index');?>"  target="rightFrame"><!--img src="/App/Admin/View/Public/images/icon03.png" title="模块设计" /--><h2>模块设计</h2></a></li>
-    <li><a href="<?php echo U('Tools/index');?>"  target="rightFrame"><!--img src="/App/Admin/View/Public/images/icon04.png" title="常用工具" /--><h2>常用工具</h2></a></li>
-    <li><a href="<?php echo U('Computer/index');?>" target="rightFrame"><!--img src="/App/Admin/View/Public/images/icon05.png" title="文件管理" /--><h2>文件管理</h2></a></li>
-    <li><a href="<?php echo U('Tab/index');?>"  target="rightFrame"><!--img src="/App/Admin/View/Public/images/icon06.png" title="系统设置" /--><h2>系统设置</h2></a></li>
+    <li><a href="<?php echo U('Default/index');?>" target="rightFrame" class="selected"><h2>后台首页</h2></a></li>
+    <li><a href="<?php echo U('Blist/index');?>" target="rightFrame"><h2>博文模块</h2></a></li>
+    <li><a href="<?php echo U('Ulist/index');?>"  target="rightFrame"><h2>用户模块</h2></a></li>
+    <li><a href="<?php echo U('Tools/index');?>"  target="rightFrame"><h2>评论模块</h2></a></li>
+    <li><a href="<?php echo U('Computer/index');?>" target="rightFrame"><h2>其它</h2></a></li>
+    <!--li><a href="<?php echo U('Tab/index');?>"  target="rightFrame"><img src="/App/Admin/View/Public/images/icon06.png" title="系统设置" /><h2>系统设置</h2></a></li-->
     </ul>
             
     <div class="topright">    
