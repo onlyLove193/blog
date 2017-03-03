@@ -36,9 +36,9 @@
     
     <ul class="iconlist">
     
-    <li><img src="/App/Admin/View/Public/images/ico01.png" /><p><a href="#">管理设置</a></p></li>
-    <li><img src="/App/Admin/View/Public/images/ico02.png" /><p><a href="#">发布文章</a></p></li>
-    <li><img src="/App/Admin/View/Public/images/ico03.png" /><p><a href="#">数据统计</a></p></li>
+    <li><img src="/App/Admin/View/Public/images/ico01.png" /><p><a href="<?php echo U('Index/account');?>">用户设置</a></p></li>
+    <li><img src="/App/Admin/View/Public/images/ico02.png" /><p><a href="<?php echo U('Blog/index');?>">发布博文</a></p></li>
+    <li><img src="/App/Admin/View/Public/images/ico03.png" /><p><a href="#">博文统计</a></p></li>
     <li><img src="/App/Admin/View/Public/images/ico04.png" /><p><a href="#">文件上传</a></p></li>
     <li><img src="/App/Admin/View/Public/images/ico05.png" /><p><a href="#">目录管理</a></p></li>
     <li><img src="/App/Admin/View/Public/images/ico06.png" /><p><a href="#">查询</a></p></li> 
