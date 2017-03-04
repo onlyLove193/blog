@@ -1,9 +1,0 @@
-<?php
-
-namespace Admin\Controller;
-use Think\Controller;
-class TabController extends Controller{
-    public function index(){
-        $this->display();
-    }
-}
