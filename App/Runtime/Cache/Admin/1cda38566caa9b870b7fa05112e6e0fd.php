@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>用户管理</title>
+<title><?php echo ($title); ?></title>
 <link href="/App/Admin/View/Public/css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="/App/Admin/View/Public/js/jquery.js"></script>
 
@@ -37,8 +37,8 @@ $(document).ready(function(){
     <span>位置：</span>
     <ul class="placeul">
     <li><a href="#">首页</a></li>
-    <li><a href="#">数据表</a></li>
-    <li><a href="#">基本内容</a></li>
+        <?php if(is_array($navi)): foreach($navi as $k=>$v): if($v === $title): ?><li><a href="#"><?php echo ($v); ?></a></li>
+            <?php else: ?> <li><a href="<?php echo U("".$k."/index");?>"><?php echo ($v); ?></a></li><?php endif; endforeach; endif; ?>
     </ul>
     </div>
     

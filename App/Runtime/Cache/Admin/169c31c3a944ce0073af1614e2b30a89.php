@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>博文发布</title>
+<title><?php echo ($title); ?></title>
 <link href="/App/Admin/View/Public/css/style.css" rel="stylesheet" type="text/css" />
 <link href="/App/Admin/View/Public/css/select.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="/App/Admin/View/Public/css/upload.css">
@@ -31,8 +31,9 @@
 	<div class="place">
     <span>位置：</span>
     <ul class="placeul">
-    <li><a href="#">首页</a></li>
-    <li><a href="#">系统设置</a></li>
+    <li><a href="<?php echo U('Index/index');?>">首页</a></li>
+    <?php if(is_array($navi)): foreach($navi as $k=>$v): if($v === $title): ?><li><a href="#"><?php echo ($v); ?></a></li>
+        <?php else: ?> <li><a href="<?php echo U("".$k."/index");?>"><?php echo ($v); ?></a></li><?php endif; endforeach; endif; ?>
     </ul>
     </div>
     
@@ -49,7 +50,7 @@
     
   	<div id="tab1" class="tabson">
     
-    <div class="formtext">Hi，<b>admin</b>，欢迎您试用信息发布功能！</div>
+    <div class="formtext">Hi，<b><?php echo (session('name')); ?></b>，欢迎您试用信息发布功能！</div>
     
     <ul class="forminfo">
     <form id="total">

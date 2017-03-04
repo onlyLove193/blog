@@ -13,6 +13,8 @@
 			$show = $page->show();
 			$this->list = $article->join('bl_author on bl_author.tid=bl_article.auid')->where('bl_article.status=1')->order('wtime desc')->limit($page->firstRow.','.$page->listRows)->select();
 			$this->assign('page',$show);
+			$this->title = '博文管理';
+			$this->navi = ['Blist'=>'博文模块','博文管理'];
 			$this->display();
 		}
 		/**

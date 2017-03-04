@@ -12,6 +12,8 @@
 			$show = $page->show();
 			$this->list = $author->order('tid desc')->limit($page->firstRow.','.$page->listRows)->select();
 			$this->assign('page',$show);
+			$this->title = '用户管理';
+			$this->navi = ['Ulist'=>'用户模块','用户管理'];
 			$this->display();
 		}
 		/**

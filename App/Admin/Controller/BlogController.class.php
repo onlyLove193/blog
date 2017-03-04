@@ -9,6 +9,8 @@ class BlogController extends CommonController{
 	public function index(){
 		$cat = M('category')->field(array('gid','cname','pid'))->select();
 		$this->cat = getRow($cat);
+		$this->title = '发表博文';
+		$this->navi = ['Blist'=>'博文模块','Blog'=>'发表博文'];
 		$this->display();
 	}	
 	/**

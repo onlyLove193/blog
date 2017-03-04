@@ -17,19 +17,7 @@
     var Dir = '/Admin';
   </script>
   
-<!--script type="text/javascript">
-$(document).ready(function(e) {
-    $(".select1").uedSelect({
-		width : 345			  
-	});
-	$(".select2").uedSelect({
-		width : 167  
-	});
-	$(".select3").uedSelect({
-		width : 100
-	});
-});
-</script-->
+
 </head>
 
 <body>

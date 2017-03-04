@@ -25,7 +25,7 @@ $(function(){
     </div>
         
     <ul class="nav">
-    <li><a href="<?php echo U('Default/index');?>" target="rightFrame" class="selected"><h2>后台首页</h2></a></li>
+    <li><a href="<?php echo U('Index/main');?>" target="rightFrame" class="selected"><h2>后台首页</h2></a></li>
     <li><a href="<?php echo U('Blist/index');?>" target="rightFrame"><h2>博文模块</h2></a></li>
     <li><a href="<?php echo U('Ulist/index');?>"  target="rightFrame"><h2>用户模块</h2></a></li>
     <li><a href="<?php echo U('Tools/index');?>"  target="rightFrame"><h2>评论模块</h2></a></li>
