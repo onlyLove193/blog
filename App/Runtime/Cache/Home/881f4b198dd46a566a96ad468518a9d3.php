@@ -161,7 +161,7 @@
       <h2>
         <p>最近访客</p>
         <ul>
-          <img src="/Public/images/vis.jpg"><!-- 直接使用“多说”插件的调用代码 -->
+          <img src="/Public/images/vis.jpg">
         </ul>
       </h2>
     </div>

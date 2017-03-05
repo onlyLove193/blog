@@ -14,8 +14,6 @@
 <![endif]-->
 </head>
 <body>
-			<?php
- $article = M('article'); $data = $article->select(); foreach($data as $v){ }?>
 <div class="ibody">
    <header>
     <h1>如影随形</h1>
