@@ -3,16 +3,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>欢迎登录后台管理系统</title>
-<link href="/App/Admin/View/Public/css/style.css" rel="stylesheet" type="text/css" />
-<!--script language="JavaScript" src="/App/Admin/View/Public/js/jquery.js"></script-->
-<script src="/App/Admin/View/Public/js/jquery-1.7.2.min.js" type="text/javascript"></script>
-<script src="/App/Admin/View/Public/js/cloud.js" type="text/javascript"></script>
+<link href="/blog/App/Admin/View/Public/css/style.css" rel="stylesheet" type="text/css" />
+<!--script language="JavaScript" src="/blog/App/Admin/View/Public/js/jquery.js"></script-->
+<script src="/blog/App/Admin/View/Public/js/jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="/blog/App/Admin/View/Public/js/cloud.js" type="text/javascript"></script>
 
 <script language="javascript">
     var Url = "<?php echo U('verify','','');?>",
-        authPath = "/Admin/Login",
-        Path = "/App/Admin/View/Public/images";
-        module = '/Admin';
+        authPath = "/blog/Admin/Login",
+        Path = "/blog/App/Admin/View/Public/images";
+        module = '/blog/Admin';
 	$(function(){
     $('.loginbox').css({'position':'absolute','left':($(window).width()-692)/2});
 	$(window).resize(function(){  
@@ -23,7 +23,7 @@
 
 </head>
 
-<body style="background-color:#1c77ac; background-image:url(/App/Admin/View/Public/images/light.png); background-repeat:no-repeat; background-position:center top; overflow:hidden;">
+<body style="background-color:#1c77ac; background-image:url(/blog/App/Admin/View/Public/images/light.png); background-repeat:no-repeat; background-position:center top; overflow:hidden;">
 
 
 
