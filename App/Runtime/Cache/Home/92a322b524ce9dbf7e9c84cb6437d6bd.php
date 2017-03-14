@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <title>个人博客模板</title>
-<meta name="keywords" content="个人博客模板,博客模板,响应式" />
-<meta name="description" content="如影随形主题的个人博客模板，神秘、俏皮。" />
+<meta name="keywords" content="个人博客" />
+<meta name="description" content="原来爱，梦里是谁的香味。。。" />
 <link href="/Public/css/base.css" rel="stylesheet">
 <link href="/Public/css/style.css" rel="stylesheet">
 <link href="/Public/css/media.css" rel="stylesheet">
@@ -16,10 +16,10 @@
 <body>
 <div class="ibody">
    <header>
-    <h1>如影随形</h1>
-    <h2>影子是一个会撒谎的精灵，它在虚空中流浪和等待被发现之间;在存在与不存在之间....</h2>
+    <h1>原来爱</h1>
+    <h2>梦里是谁的香味，唤醒封印的眷恋，而今什么样的你，是否也想念曾今....</h2>
     <div class="logo"><a href="/"></a></div>
-    <nav id="topnav"><a href="<?php echo U('Index/index');?>">首页</a><a href="<?php echo U('About/index');?>">关于我</a><a href="<?php echo U('Newlist/index');?>">慢生活</a><a href="<?php echo U('Share/index');?>">模板分享</a><a href="<?php echo U('New/index');?>">模板主题</a></nav>
+    <nav id="topnav"><a href="<?php echo U('Index/index');?>">首页</a><a href="<?php echo U('About/index');?>">关于我</a><a href="<?php echo U('Newlist/index');?>">爱生活</a><a href="<?php echo U('Share/index');?>">音乐分享</a><a href="<?php echo U('New/index');?>">心灵感悟</a></nav>
   </header>
   <article>
     <h2 class="about_h">您现在的位置是：<a href="/">首页</a>><a href="1/">模板分享</a>><a href="1/">个人博客模板</a></h2>
