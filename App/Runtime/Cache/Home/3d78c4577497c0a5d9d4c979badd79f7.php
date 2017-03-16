@@ -17,7 +17,7 @@
 <div class="ibody">
    <header>
     <h1>原来爱</h1>
-    <h2>梦里是谁的香味，唤醒封印的眷恋，而今什么样的你，是否也想念曾今....</h2>
+    <h2>梦里是谁的香味，唤醒封印的眷恋，而今什么样的你，是否也想念曾经....</h2>
     <div class="logo"><a href="/"></a></div>
     <nav id="topnav"><a href="<?php echo U('Index/index');?>">首页</a><a href="<?php echo U('About/index');?>">关于我</a><a href="<?php echo U('Newlist/index');?>">爱生活</a><a href="<?php echo U('Share/index');?>">音乐分享</a><a href="<?php echo U('New/index');?>">心灵感悟</a></nav>
   </header>
