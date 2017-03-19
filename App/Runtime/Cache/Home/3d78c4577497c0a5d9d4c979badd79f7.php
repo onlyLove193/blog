@@ -19,7 +19,7 @@
     <h1>原来爱</h1>
     <h2>梦里是谁的香味，唤醒封印的眷恋，而今什么样的你，是否也想念曾经....</h2>
     <div class="logo"><a href="/"></a></div>
-    <nav id="topnav"><a href="<?php echo U('Index/index');?>">首页</a><a href="<?php echo U('About/index');?>">关于我</a><a href="<?php echo U('Newlist/index');?>">爱生活</a><a href="<?php echo U('Share/index');?>">音乐分享</a><a href="<?php echo U('New/index');?>">心灵感悟</a></nav>
+    <nav id="topnav"><a href="<?php echo U('Index/index');?>">首页</a><a href="<?php echo U('Newlist/index');?>">文章列表</a><a href="<?php echo U('New/index');?>">心灵感悟</a><a href="<?php echo U('Share/index');?>">文章分享</a><a href="<?php echo U('About/index');?>">关于我</a></nav>
   </header>
   <article>
     <h3 class="about_h">您现在的位置是：<a href="/">首页</a>><a href="1/">关于我</a></h3>

@@ -19,7 +19,7 @@
     <h1>原来爱</h1>
     <h2>梦里是谁的香味，唤醒封印的眷恋，而今什么样的你，是否也想念曾经....</h2>
     <div class="logo"><a href="/"></a></div>
-    <nav id="topnav"><a href="<?php echo U('Index/index');?>">首页</a><a href="<?php echo U('About/index');?>">关于我</a><a href="<?php echo U('Newlist/index');?>">爱生活</a><a href="<?php echo U('Share/index');?>">音乐分享</a><a href="<?php echo U('New/index');?>">心灵感悟</a></nav>
+    <nav id="topnav"><a href="<?php echo U('Index/index');?>">首页</a><a href="<?php echo U('Newlist/index');?>">文章列表</a><a href="<?php echo U('New/index');?>">心灵感悟</a><a href="<?php echo U('Share/index');?>">文章分享</a><a href="<?php echo U('About/index');?>">关于我</a></nav>
   </header>
   <article>
     <div class="banner">
@@ -34,11 +34,11 @@
       </h2>
         <?php if(is_array($rows)): foreach($rows as $key=>$v): ?><div class="blogs">
           <!-- <?php echo ($v['title']); ?> 文章ID -->
-            <h3><a href="/"><?php echo ($v['title']); ?></a></h3>
+            <h3><a href="<?php echo U('New/index',['id'=>$v['aid']]);?>"><?php echo ($v['title']); ?></a></h3>
             <figure><img src="<?php echo ($v['aimg']); ?>" ></figure>
             <ul>
-              <p><?php echo ($v['content']); ?></p>
-              <a href="/" target="_blank" class="readmore">阅读全文&gt;&gt;</a>
+              <p><?php echo (getCont($v['content'],450)); ?>...</p>
+              <a href="<?php echo U('New/index',['id'=>$v['aid']]);?>" target="_blank" class="readmore">阅读全文&gt;&gt;</a>
             </ul>
             <p class="autor"><span>作者：<?php echo ($v['uname']); ?></span><span>分类：【<a href="/"><?php echo ($v['cname']); ?></a>】</span><span>浏览（<a href="/"><?php echo ($v['red']); ?></a>）</span><span>评论（<a href="/">30</a>）</span></p>
             <div class="dateview"><?php echo (date('Y-m-d',$v['wtime'])); ?></div>
@@ -64,27 +64,13 @@
         <p class="tj_t1">最新文章</p>
       </h2>
       <ul>
-        <li><a href="/">犯错了怎么办？</a></li>
-        <li><a href="/">两只蜗牛艰难又浪漫的一吻</a></li>
-        <li><a href="/">春暖花开-走走停停-发现美</a></li>
-        <li><a href="/">琰智国际-Nativ for Life官方网站</a></li>
-        <li><a href="/">个人博客模板（2014草根寻梦）</a></li>
-        <li><a href="/">简单手工纸玫瑰</a></li>
-        <li><a href="/">响应式个人博客模板（蓝色清新）</a></li>
-        <li><a href="/">蓝色政府（卫生计划生育局）网站</a></li>
+        <?php if(is_array($hots)): foreach($hots as $key=>$v): ?><li><a href="<?php echo U('New/index',['id'=>$v['aid']]);?>"><?php echo ($cols[$v]['title']); ?></a></li><?php endforeach; endif; ?>
       </ul>
       <h2>
         <p class="tj_t2">推荐文章</p>
       </h2>
       <ul>
-        <li><a href="/">犯错了怎么办？</a></li>
-        <li><a href="/">两只蜗牛艰难又浪漫的一吻</a></li>
-        <li><a href="/">春暖花开-走走停停-发现美</a></li>
-        <li><a href="/">琰智国际-Nativ for Life官方网站</a></li>
-        <li><a href="/">个人博客模板（2014草根寻梦）</a></li>
-        <li><a href="/">简单手工纸玫瑰</a></li>
-        <li><a href="/">响应式个人博客模板（蓝色清新）</a></li>
-        <li><a href="/">蓝色政府（卫生计划生育局）网站</a></li>
+        <?php if(is_array($recoms)): foreach($recoms as $key=>$v): ?><li><a href="<?php echo U('New/index',['id'=>$v['aid']]);?>"><?php echo ($cols[$v]['title']); ?></a></li><?php endforeach; endif; ?>
       </ul>
     </div>
     <div class="links">
