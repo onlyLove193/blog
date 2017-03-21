@@ -13,7 +13,7 @@
             <p>{$v.content|getCont=450} <a href="{:U('New/index',['id'=>$v['aid']])}" target="_blank" class="readmore">全文</a></p>
           </ul>
           <figure><img src="{$v.aimg}" ></figure>
-          <div class="dateview">{$v|date='Y-m-d',###}</div>
+          <div class="dateview">{$v.wtime|date='Y-m-d',###}</div>
         </div>
       </foreach>
     </div>

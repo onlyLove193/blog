@@ -31,7 +31,7 @@
             <p><?php echo (getCont($v["content"],450)); ?> <a href="<?php echo U('New/index',['id'=>$v['aid']]);?>" target="_blank" class="readmore">全文</a></p>
           </ul>
           <figure><img src="<?php echo ($v["aimg"]); ?>" ></figure>
-          <div class="dateview"><?php echo (date('Y-m-d',$v)); ?></div>
+          <div class="dateview"><?php echo (date('Y-m-d',$v["wtime"])); ?></div>
         </div><?php endforeach; endif; ?>
     </div>
     <div class="page"><?php echo ($show); ?></div>
