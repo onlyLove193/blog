@@ -8,6 +8,7 @@
 <link href="/Public/css/base.css" rel="stylesheet">
 <link href="/Public/css/style.css" rel="stylesheet">
 <link href="/Public/css/media.css" rel="stylesheet">
+<link href="/Public/css/comment.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
 <!--[if lt IE 9]>
 <script src="/Public/js/modernizr.js"></script>

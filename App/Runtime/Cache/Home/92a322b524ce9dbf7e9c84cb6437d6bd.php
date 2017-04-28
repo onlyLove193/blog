@@ -8,6 +8,7 @@
 <link href="/Public/css/base.css" rel="stylesheet">
 <link href="/Public/css/style.css" rel="stylesheet">
 <link href="/Public/css/media.css" rel="stylesheet">
+<link href="/Public/css/comment.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
 <!--[if lt IE 9]>
 <script src="/Public/js/modernizr.js"></script>
@@ -22,7 +23,7 @@
     <nav id="topnav"><a href="<?php echo U('Index/index');?>">首页</a><a href="<?php echo U('Newlist/index');?>">文章列表</a><a href="<?php echo U('New/index');?>">心灵感悟</a><a href="<?php echo U('Share/index');?>">文章分享</a><a href="<?php echo U('About/index');?>">关于我</a></nav>
   </header>
   <article>
-    <h2 class="about_h">您现在的位置是：<a href="/">首页</a>><a href="1/">心灵感悟</a>
+    <h2 class="about_h">您现在的位置是：<a href="/">首页</a>><a href="<?php echo U('index');?>">心灵感悟</a>
     <div class="index_about">
       <h2 class="c_titile"><?php echo ($res["title"]); ?></h2>
       <p class="box_c"><span class="d_time">发布时间：<?php echo (date("Y-m-d",$res["wtime"])); ?></span><span>编辑：<?php echo ($res["uname"]); ?></span><span>浏览（390）</span><span>评论览（14）</span></p>
@@ -32,6 +33,10 @@
       </ul>
       <div class="keybq">
         <p><span>关键字词</span>：<?php echo ($res["keywords"]); ?></p>
+      </div>
+      <div class="comment">
+        <input type="textarea" name="textarea" value="" /><br />
+        <input type="button" name="button" value="提交">
       </div>
       <div class="nextinfo">
         <p>上一篇：<a href="<?php echo U('New/index',['id'=>$prev['aid']]);?>"><?php echo ($prev["title"]); ?></a></p>

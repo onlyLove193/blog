@@ -3,12 +3,12 @@
 <div class="ibody">
   <include file="./Public/category.html" />
   <article>
-    <h2 class="about_h">您现在的位置是：<a href="/">首页</a>><a href="1/">文章列表</a></h2>
+    <h2 class="about_h">您现在的位置是：<a href="/">首页</a>><a href="{:U('index')}">文章列表</a></h2>
     <div class="bloglist">
       <foreach name="list" item="v">
         <div class="newblog">
           <ul>
-            <h3><a href="/">{$v.title}</a></h3>
+            <h3><a href="{:U('New/index',['id'=>$v['aid']])}">{$v.title}</a></h3>
             <div class="autor"><span>作者：{$v.uname}</span><span>分类：[<a href="/">{$v.cname}</a>]</span><span>浏览（<a href="/">459</a>）</span><span>评论（<a href="/">30</a>）</span></div>
             <p>{$v.content|getCont=450} <a href="{:U('New/index',['id'=>$v['aid']])}" target="_blank" class="readmore">全文</a></p>
           </ul>

@@ -3,7 +3,7 @@
 <div class="ibody">
   <include file="./Public/category.html" />
   <article>
-    <h2 class="about_h">您现在的位置是：<a href="/">首页</a>><a href="1/">心灵感悟</a>
+    <h2 class="about_h">您现在的位置是：<a href="/">首页</a>><a href="{:U('index')}">心灵感悟</a>
     <div class="index_about">
       <h2 class="c_titile">{$res.title}</h2>
       <p class="box_c"><span class="d_time">发布时间：{$res.wtime|date="Y-m-d",###}</span><span>编辑：{$res.uname}</span><span>浏览（390）</span><span>评论览（14）</span></p>
@@ -13,6 +13,10 @@
       </ul>
       <div class="keybq">
         <p><span>关键字词</span>：{$res.keywords}</p>
+      </div>
+      <div class="comment">
+        <input type="textarea" name="textarea" value="" /><br />
+        <input type="button" name="button" value="提交">
       </div>
       <div class="nextinfo">
         <p>上一篇：<a href="{:U('New/index',['id'=>$prev['aid']])}">{$prev.title}</a></p>

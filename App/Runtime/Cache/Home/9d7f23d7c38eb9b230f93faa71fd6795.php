@@ -8,6 +8,7 @@
 <link href="/Public/css/base.css" rel="stylesheet">
 <link href="/Public/css/style.css" rel="stylesheet">
 <link href="/Public/css/media.css" rel="stylesheet">
+<link href="/Public/css/comment.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
 <!--[if lt IE 9]>
 <script src="/Public/js/modernizr.js"></script>
@@ -22,11 +23,11 @@
     <nav id="topnav"><a href="<?php echo U('Index/index');?>">首页</a><a href="<?php echo U('Newlist/index');?>">文章列表</a><a href="<?php echo U('New/index');?>">心灵感悟</a><a href="<?php echo U('Share/index');?>">文章分享</a><a href="<?php echo U('About/index');?>">关于我</a></nav>
   </header>
   <article>
-    <h2 class="about_h">您现在的位置是：<a href="/">首页</a>><a href="1/">文章列表</a></h2>
+    <h2 class="about_h">您现在的位置是：<a href="/">首页</a>><a href="<?php echo U('index');?>">文章列表</a></h2>
     <div class="bloglist">
       <?php if(is_array($list)): foreach($list as $key=>$v): ?><div class="newblog">
           <ul>
-            <h3><a href="/"><?php echo ($v["title"]); ?></a></h3>
+            <h3><a href="<?php echo U('New/index',['id'=>$v['aid']]);?>"><?php echo ($v["title"]); ?></a></h3>
             <div class="autor"><span>作者：<?php echo ($v["uname"]); ?></span><span>分类：[<a href="/"><?php echo ($v["cname"]); ?></a>]</span><span>浏览（<a href="/">459</a>）</span><span>评论（<a href="/">30</a>）</span></div>
             <p><?php echo (getCont($v["content"],450)); ?> <a href="<?php echo U('New/index',['id'=>$v['aid']]);?>" target="_blank" class="readmore">全文</a></p>
           </ul>

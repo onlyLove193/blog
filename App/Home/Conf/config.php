@@ -8,7 +8,7 @@ return array(
 	'DB_TYPE' => 'mysql',
 	'DB_HOST' => '127.0.0.1',
 	'DB_USER' => 'root',
-	'DB_PWD'  => '',
+	'DB_PWD'  => 'yla501193',
 	'DB_PREFIX' => 'bl_',
 	'DB_NAME' => 'blog',
 	'DB_CHARSET' => 'utf8'
