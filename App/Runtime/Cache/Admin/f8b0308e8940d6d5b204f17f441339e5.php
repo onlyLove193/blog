@@ -42,7 +42,7 @@ $(document).ready(function(){
 	<div class="place">
     <span>位置：</span>
     <ul class="placeul">
-    <li><a href="<?php echo U('Index/index');?>">首页</a></li>
+    <li><a href="<?php echo U('Index/main');?>">首页</a></li>
     <?php if(is_array($navi)): foreach($navi as $k=>$v): if($v === $title): ?><li><a href="#"><?php echo ($v); ?></a></li>
         <?php else: ?> <li><a href="<?php echo U("".$k."/index");?>"><?php echo ($v); ?></a></li><?php endif; endforeach; endif; ?>
     </ul>
@@ -55,8 +55,6 @@ $(document).ready(function(){
     	<ul class="toolbar">
         <li class="click"><span><img src="/App/Admin/View/Public/images/t01.png" /></span>添加</li>
         <li class="click"><span><img src="/App/Admin/View/Public/images/t02.png" /></span>修改</li>
-        <li><span><img src="/App/Admin/View/Public/images/t03.png" /></span>删除</li>
-        <li><span><img src="/App/Admin/View/Public/images/t04.png" /></span>统计</li>
         </ul>
         
         

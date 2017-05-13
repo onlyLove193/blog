@@ -39,39 +39,27 @@
   </article>
   <aside>
     <div class="rnav">
-      <li class="rnav1 "><a href="/">日记</a></li>
+      <li class="rnav1 "><a href="/">心情</a></li>
       <li class="rnav2 "><a href="/">欣赏</a></li>
+      <li class="rnav4 "><a href="/">生活</a></li>
       <li class="rnav3 "><a href="/">程序人生</a></li>
-      <li class="rnav4 "><a href="/">经典语录</a></li>
     </div>
     <div class="ph_news">
       <h2>
         <p>点击排行</p>
       </h2>
       <ul class="ph_n">
-        <li><span class="num1">1</span><a href="/">有一种思念，是淡淡的幸福,一个心情一行文字</a></li>
-        <li><span class="num2">2</span><a href="/">励志人生-要做一个潇洒的女人</a></li>
-        <li><span class="num3">3</span><a href="/">女孩都有浪漫的小情怀——浪漫的求婚词</a></li>
-        <li><span>4</span><a href="/">Green绿色小清新的夏天-个人博客模板</a></li>
-        <li><span>5</span><a href="/">女生清新个人博客网站模板</a></li>
-        <li><span>6</span><a href="/">Wedding-婚礼主题、情人节网站模板</a></li>
-        <li><span>7</span><a href="/">Column 三栏布局 个人网站模板</a></li>
-        <li><span>8</span><a href="/">时间煮雨-个人网站模板</a></li>
-        <li><span>9</span><a href="/">花气袭人是酒香—个人网站模板</a></li>
+      <li><span class="num1">1</span><a href="<?php echo U('New/index',['id'=>$relist[0]['aid']]);?>"><?php echo ($relist[0]['title']); ?></a></li>
+        <li><span class="num2">2</span><a href="<?php echo U('New/index',['id'=>$relist[1]['aid']]);?>"><?php echo ($relist[1]['title']); ?></a></li>
+        <li><span class="num3">3</span><a href="<?php echo U('New/index',['id'=>$relist[2]['aid']]);?>"><?php echo ($relist[2]['title']); ?></a></li>
+      <?php if(is_array($relist)): foreach($relist as $ckey=>$cvalue): if($ckey < 2): else: ?>
+        <li><span><?php echo ++$ckey;?></span><a href="<?php echo U('New/index',['id'=>$cvalue['aid']]);?>"><?php echo ($cvalue['title']); ?></a></li><?php endif; endforeach; endif; ?>
       </ul>
       <h2>
         <p>栏目推荐</p>
       </h2>
       <ul>
-        <li><a href="/">有一种思念，是淡淡的幸福,一个心情一行文字</a></li>
-        <li><a href="/">励志人生-要做一个潇洒的女人</a></li>
-        <li><a href="/">女孩都有浪漫的小情怀——浪漫的求婚词</a></li>
-        <li><a href="/">Green绿色小清新的夏天-个人博客模板</a></li>
-        <li><a href="/">女生清新个人博客网站模板</a></li>
-        <li><a href="/">Wedding-婚礼主题、情人节网站模板</a></li>
-        <li><a href="/">Column 三栏布局 个人网站模板</a></li>
-        <li><a href="/">时间煮雨-个人网站模板</a></li>
-        <li><a href="/">花气袭人是酒香—个人网站模板</a></li>
+        <?php if(is_array($ca_key)): foreach($ca_key as $key=>$cv): ?><li><a href="/">&nbsp;<?php echo ($calist[$cv]['cname']); ?></a></li><?php endforeach; endif; ?>
       </ul>
       <h2>
         <p>最新评论</p>

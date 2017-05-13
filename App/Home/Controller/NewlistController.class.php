@@ -18,10 +18,24 @@ class NewlistController extends Controller{
 
 		//根据分页页数从数据表取出数据
 		$list = $article->join('bl_author on bl_article.auid=bl_author.tid')->join('bl_category on bl_article.cid=bl_category.gid')->where('bl_article.status = 1')->order('wtime desc')->limit($page->firstRow.','.$page->listRows)->select();
-		
+
+		/**
+		 * 右侧点击排行内容
+		 */
+		$relist = $article->field(['aid','title'])->order("red desc")->limit(9)->select();
+
+		/**
+		 * 右侧栏目排行内容
+		 */
+		$calist = M("category")->field(['gid','cname'])->select();
+		$key = array_rand($calist,9);
+
 		//分配数据
 		$this->show = $show;
 		$this->list = $list;
+		$this->relist = $relist;
+		$this->calist = $calist;
+		$this->ca_key = $key;
 		$this->display();
 	}
 }

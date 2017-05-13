@@ -15,7 +15,7 @@
     var Path = "/App/Admin/View/Public";
     var Url = '/Admin/Index';
     var Dir = '/Admin';
-  </script>
+</script>
   
 
 </head>
@@ -25,7 +25,7 @@
 	<div class="place">
     <span>位置：</span>
     <ul class="placeul">
-    <li><a href="#">首页</a></li>
+    <li><a href="<?php echo U('Index/main');?>">首页</a></li>
     <li><a href="#">账户管理</a></li>
     </ul>
     </div>

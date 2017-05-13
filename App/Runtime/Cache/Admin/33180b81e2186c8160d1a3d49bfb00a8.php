@@ -38,10 +38,6 @@
     
     <li><img src="/App/Admin/View/Public/images/ico01.png" /><p><a href="<?php echo U('Index/account');?>">用户设置</a></p></li>
     <li><img src="/App/Admin/View/Public/images/ico02.png" /><p><a href="<?php echo U('Blog/index');?>">发布博文</a></p></li>
-    <li><img src="/App/Admin/View/Public/images/ico03.png" /><p><a href="#">博文统计</a></p></li>
-    <li><img src="/App/Admin/View/Public/images/ico04.png" /><p><a href="#">文件上传</a></p></li>
-    <li><img src="/App/Admin/View/Public/images/ico05.png" /><p><a href="#">目录管理</a></p></li>
-    <li><img src="/App/Admin/View/Public/images/ico06.png" /><p><a href="#">查询</a></p></li> 
             
     </ul>
     
@@ -57,7 +53,6 @@
     
     <ul class="infolist">
     <li><span>您可以快速进行文章发布管理操作</span><a class="ibtn">发布或管理文章</a></li>
-    <li><span>您可以快速发布产品</span><a class="ibtn">发布或管理产品</a></li>
     <li><span>您可以进行密码修改、账户设置等操作</span><a class="ibtn">账户管理</a></li>
     </ul>
     

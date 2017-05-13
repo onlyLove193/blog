@@ -1,11 +1,11 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>{$title}</title>
-<link href="__PUBLIC__/css/style.css" rel="stylesheet" type="text/css" />
-<link href="__PUBLIC__/css/page.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+<title><?php echo ($title); ?></title>
+<link href="/App/Admin/View/Public/css/style.css" rel="stylesheet" type="text/css" />
+<link href="/App/Admin/View/Public/css/page.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/App/Admin/View/Public/js/jquery.js"></script>
 <script language="javascript">
 $(function(){	
 	//导航切换
@@ -42,12 +42,9 @@ $(document).ready(function(){
 	<div class="place">
     <span>位置：</span>
     <ul class="placeul">
-    <li><a href="{:U('Index/main')}">首页</a></li>
-    <foreach name='navi' item='v' key="k">
-        <if condition="$v === $title"> <li><a href="#">{$v}</a></li>
-        <else /> <li><a href="{:U(\"".$k."/index\")}">{$v}</a></li>
-        </if>
-    </foreach>
+    <li><a href="<?php echo U('Index/main');?>">首页</a></li>
+    <?php if(is_array($navi)): foreach($navi as $k=>$v): if($v === $title): ?><li><a href="#"><?php echo ($v); ?></a></li>
+        <?php else: ?> <li><a href="<?php echo U("".$k."/index");?>"><?php echo ($v); ?></a></li><?php endif; endforeach; endif; ?>
     </ul>
     </div>
     
@@ -56,13 +53,13 @@ $(document).ready(function(){
     <div class="tools">
     
     	<ul class="toolbar">
-        <li class="click"><span><img src="__PUBLIC__/images/t01.png" /></span>添加</li>
-        <li class="click"><span><img src="__PUBLIC__/images/t02.png" /></span>修改</li>
+        <li class="click"><span><img src="/App/Admin/View/Public/images/t01.png" /></span>添加</li>
+        <li class="click"><span><img src="/App/Admin/View/Public/images/t02.png" /></span>修改</li>
         </ul>
         
         
         <ul class="toolbar1">
-        <li><span><img src="__PUBLIC__/images/t05.png" /></span>设置</li>
+        <li><span><img src="/App/Admin/View/Public/images/t05.png" /></span>设置</li>
         </ul>
     
     </div>
@@ -72,35 +69,25 @@ $(document).ready(function(){
     
     <thead>
     <tr>
-    <th width="100px;">缩略图</th>
-    <th>标题</th>
-    <th>栏目</th>
-    <th>权限</th>
-    <th>发布人</th>
-    <th>是否审核</th>
-    <th>点击</th>
+    <th>栏目ID</th>
+    <th>栏目名</th>
+    <th>父级栏目ID</th>
+    <th>状态</th>
     </tr>
     </thead>
     
     <tbody>
-    <foreach name="list" item="v" key="k">
-        <tr>
-        <td class="imgtd"><img src="{$v.aimg|substr='0',-4}sm.jpg" /></td>
-        <td><a href="#">{$v.title}</a><p>发布时间：{$v.wtime|date='Y-m-d H:i:s',###}</p></td>
-        <td>{$v.cname}<p>ID: {$v.cid}</p></td>
+    <?php if(is_array($list)): foreach($list as $k=>$v): ?><tr>
+        <td><?php echo ($v["gid"]); ?></td>
+        <td><?php echo ($v["cname"]); ?></td>
+        <td><?php echo ($v["pid"]); ?></td>
         <td>
-            <if condition="$v['status'] eq 1">已开通
-            <else />false
-            </if>
+            <?php if($v['status'] == 1): ?>开通
+            <?php else: ?> 关闭<?php endif; ?>
         </td>
-        <td>{$v.uname}</td>
-        <td>已审核</td>
-        <td>{$v.red}</td>
-        </tr>
-        
-    </foreach>
+        </tr><?php endforeach; endif; ?>
     
-        <tr><td colspan="7" align="center"><div class="page">{$page}</div></td></tr>
+        <tr><td colspan="7" align="center"><div class="page"><?php echo ($page); ?></div></td></tr>
     </tbody>
     
     </table>
@@ -109,7 +96,7 @@ $(document).ready(function(){
     	<div class="tiptop"><span>提示信息</span><a></a></div>
         
       <div class="tipinfo">
-        <span><img src="__PUBLIC__/images/ticon.png" /></span>
+        <span><img src="/App/Admin/View/Public/images/ticon.png" /></span>
         <div class="tipright">
         <p>是否确认对信息的修改 ？</p>
         <cite>如果是请点击确定按钮 ，否则请点取消。</cite>

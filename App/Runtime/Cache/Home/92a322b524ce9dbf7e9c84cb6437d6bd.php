@@ -35,7 +35,7 @@
         <p><span>关键字词</span>：<?php echo ($res["keywords"]); ?></p>
       </div>
       <div class="comment">
-        <input type="textarea" name="textarea" value="" /><br />
+        <textarea name="comment" id="comm" cols="79" rows="10"></textarea><br />
         <input type="button" name="button" value="提交">
       </div>
       <div class="nextinfo">
@@ -52,10 +52,10 @@
   </article>
   <aside>
     <div class="rnav">
-      <li class="rnav1 "><a href="/">日记</a></li>
+      <li class="rnav1 "><a href="/">心情</a></li>
       <li class="rnav2 "><a href="/">欣赏</a></li>
+      <li class="rnav4 "><a href="/">生活</a></li>
       <li class="rnav3 "><a href="/">程序人生</a></li>
-      <li class="rnav4 "><a href="/">经典语录</a></li>
     </div>
     <div class="ph_news">
       <h2>
