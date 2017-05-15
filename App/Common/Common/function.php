@@ -43,35 +43,26 @@
 	 * @return $array 返回一个多维数组
 	 */
 	/*
-		array(array('gid'=>1,'pid'=>0),array('gid'=>2,'pid'=>1));
+		[
+			'gid',
+			'cname',
+			'pid'
+		]
 	 */
 	function getRec($arr,$pid = 0){
 		$res = array();
-		$tmp = &$res ;
-		$lev = array($pid);
-		$sp  = array();
-		while(!empty($lev)){
-			$pid = array_shift($lev);
+		if(!is_array($arr)) {
+			return false;
+		}
 			foreach($arr as $k=>$v){
-				if($v['pid'] == $pid){
-					array_push($res,$v);
-					$tmp[] = $v;
-					$tmp = &$v;
-					array_unshift($sp,$k);
-					array_unshift($lev,$pid);
+				if($v['pid'] === $pid){
+					$res[] = $v;
+					$v['child'] = [];
+					$res = $v['child'];
 					$pid = $v['gid'];
 				}
 			}
-			array_shift($sp);
-			$id = array_shift($sp);
-			if($id === null){
-				$tmp = &$res;
-			}else{
-
-				$tmp = &$arr[$id];
-			}
-			
-		}
+		
 		return $res;
 		
 	}

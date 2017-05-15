@@ -12,7 +12,7 @@ class ClistController extends CommonController
 		$this->list = $clist->field(['descript','keywords'],true)->order('gid asc')->limit($page->firstRow.' , '.$page->listRows)->select();
 		$this->assign('page',$show);
 		$this->title = '栏目列表';
-		$this->navi = ["Blist"=>'栏目模块','栏目列表'];
+		$this->navi = ["Clist"=>'栏目模块','栏目列表'];
 		$this->display();
 	}
 }

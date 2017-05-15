@@ -1,6 +1,6 @@
 <?php
 	namespace Admin\Controller;
-	use Admin\Controller;
+
 	class BmanageController extends CommonController{
 		/**
 		 * 博文列表首页
