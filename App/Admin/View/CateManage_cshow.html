@@ -15,14 +15,14 @@
     var path = '__CONTROLLER__';
     $(document).ready(function(e) {
         $(".select1").uedSelect({
-    		width : 320			  
-    	});
+            width : 320           
+        });
     });
 </script>
 </head>
 
 <body>
-	<div class="place">
+    <div class="place">
     <span>位置：</span>
     <ul class="placeul">
     <li><a href="{:U('Index/main')}">首页</a></li>
@@ -40,35 +40,39 @@
     <div id="usual1" class="usual"> 
     
     <div class="itab">
-  	<ul> 
-    <li><a href="#tab1" class="selected">栏目添加</a></li> 
-  	</ul>
+    <ul> 
+    <li><a href="#tab1" class="selected">栏目编辑</a></li> 
+    </ul>
     </div> 
     
-  	<div id="tab1" class="tabson">
+    <div id="tab1" class="tabson">
     
-    <div class="formtext">Hi，<b>{$Think.session.name}</b>，欢迎您添加新栏目！</div>
+    <div class="formtext">Hi，<b>{$Think.session.name}</b>，欢迎您编辑新栏目！</div>
     
     <ul class="forminfo">
     <form id="total" method="post" action="{:U('addHandle')}">
-    <li><label>栏目名<b>:</b></label><input name="cname" type="text" class="dfinput" value="" style="width:320px;" /></li>
+    <li><label>栏目名<b>:</b></label><input name="cname" type="text" class="dfinput" value="{$res.cname}" style="width:320px;" /></li>
     <li><label>父级栏目<b>:</b></label>  
     <div class="vocation">
     <select class="select1" name="pid">
     <option select="selected" value="0">所属栏目</option>
     <foreach name="cat" item="v">
+    <if condition="$res['pid'] eq $v['gid']">
+    <option value="{$v.gid}" selected="selected">{$v.level|str_repeat="&nbsp;&nbsp;&nbsp;&nbsp;",###}{$v.cname}</option>
+    <else/>
     <option value="{$v.gid}">{$v.level|str_repeat="&nbsp;&nbsp;&nbsp;&nbsp;",###}{$v.cname}</option>
+    </if>
     </foreach>
     </select>
     </div>
     
     </li>
     
-    <li><label>关键字<b>:</b></label><input name="keywords" type="text" class="dfinput" value="" style="width:320px;" />
+    <li><label>关键字<b>:</b></label><input name="keywords" type="text" class="dfinput" value="{$res.keywords}" style="width:320px;" />
     </li>
-    <li><label>描述<b>:</b></label><textarea name="descript" style="width:320px;height:60px;border:1px solid #ccc;"></textarea>
+    <li><label>描述<b>:</b></label><textarea name="descript" style="width:320px;height:60px;border:1px solid #ccc;">{$res.descript}</textarea>
     </li>
-    <li id="status"><label>状态<b>:</b></label><input name="status" type="radio" style="position:relative;top:4px;" value="1" checked="checked" />&nbsp;可见&nbsp;&nbsp;&nbsp;&nbsp;<input name="status" style="position:relative;top:4px;" type="radio" value="0" />&nbsp;不可见　</li>
+    <li id="status"><label>状态<b>:</b></label><input name="status" type="radio" style="position:relative;top:4px;" value="1" "<?= !empty($res['status']) ? 'checked' : ''; ?>" />&nbsp;可见&nbsp;&nbsp;&nbsp;&nbsp;<input name="status" style="position:relative;top:4px;" type="radio" value="0" "<?= empty($res['status']) ? 'checked' : ''; ?>" />&nbsp;不可见　</li>
     <li><label>&nbsp;</label><input name="button" id="btn" type="submit" class="btn" value="马上发布"/></li>
     </form>
     </ul>
@@ -76,12 +80,12 @@
     </div> 
     </div> 
  
-	<script type="text/javascript"> 
+    <script type="text/javascript"> 
       $("#usual1 ul").idTabs(); 
     </script>
     
     <script type="text/javascript">
-	$('.tablelist tbody tr:odd').addClass('odd');
+    $('.tablelist tbody tr:odd').addClass('odd');
     $('#total').submit(function(){
         var cname = $(".dfinput:eq(0)").val().trim();
         if(cname == '') {
@@ -89,7 +93,7 @@
             return false;
         }
     });
-	</script>
+    </script>
     
     
     
