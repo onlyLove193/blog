@@ -50,7 +50,7 @@
     <div class="formtext">Hi，<b>{$Think.session.name}</b>，欢迎您编辑新栏目！</div>
     
     <ul class="forminfo">
-    <form id="total" method="post" action="{:U('addHandle')}">
+    <form id="total" method="post" action="{:U('manageHandle')}">
     <li><label>栏目名<b>:</b></label><input name="cname" type="text" class="dfinput" value="{$res.cname}" style="width:320px;" /></li>
     <li><label>父级栏目<b>:</b></label>  
     <div class="vocation">
@@ -72,8 +72,15 @@
     </li>
     <li><label>描述<b>:</b></label><textarea name="descript" style="width:320px;height:60px;border:1px solid #ccc;">{$res.descript}</textarea>
     </li>
-    <li id="status"><label>状态<b>:</b></label><input name="status" type="radio" style="position:relative;top:4px;" value="1" "<?= !empty($res['status']) ? 'checked' : ''; ?>" />&nbsp;可见&nbsp;&nbsp;&nbsp;&nbsp;<input name="status" style="position:relative;top:4px;" type="radio" value="0" "<?= empty($res['status']) ? 'checked' : ''; ?>" />&nbsp;不可见　</li>
-    <li><label>&nbsp;</label><input name="button" id="btn" type="submit" class="btn" value="马上发布"/></li>
+    <li id="status"><label>状态<b>:</b></label>
+    <if condition="$res['status'] eq 1">
+    <input name="status" type="radio" style="position:relative;top:4px;" value="1" checked="checked" />&nbsp;可见&nbsp;&nbsp;&nbsp;&nbsp;<input name="status" style="position:relative;top:4px;" type="radio" value="0" "<?= empty($res['status']) ? 'checked' : ''; ?>" />&nbsp;不可见　<else/>
+    <input name="status" type="radio" style="position:relative;top:4px;" value="1" />&nbsp;可见&nbsp;&nbsp;&nbsp;&nbsp;<input name="status" style="position:relative;top:4px;" type="radio" value="0" checked="checked"  />&nbsp;不可见　
+    </if>
+    
+    </li>
+    <li><input type="hidden" name="gid" value="{$res.gid}" /></li>
+    <li><label>&nbsp;</label><input name="button" id="btn" type="submit" class="btn" value="确认修改"/></li>
     </form>
     </ul>
     

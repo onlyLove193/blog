@@ -1,7 +1,7 @@
 @charset "utf-8";
 .page{
-    /*margin:0 auto;*/
     margin:0 auto; text-align: center; width: 100%; overflow: hidden; 
+    text-indent: 0px;
 }
 .prev,.next{
     float:left;

@@ -23,7 +23,23 @@
 		 */
 		public function bshow(){
 			$aid = I('get.aid','','intval');
-			echo $aid;
+			/**
+			 * [$field description]过滤字段信息
+			 * @var [type]
+			 */
+			$field = ['bl_article.aid'=>'aid','bl_article.title'=>'title','bl_article.keywords'=>'keywords','bl_article.preread'=>'preread','bl_article.status'=>'status','bl_article.aimg'=>'aimg','bl_article.content'=>'content','bl_author.uname'=>'author','bl_category.gid'=>'gid','bl_category.cname'=>'cname'];
+			/**
+			 * [$article description]提取关联字段
+			 * @var [type]
+			 */
+			$this->article = M('article')->field($field)->join('bl_author on bl_article.auid=bl_author.tid')->join('bl_category on bl_article.cid=bl_category.gid')->where(['aid'=>$aid])->find();
+
+			$category = M('category')->select();
+			$this->category = getRow($category);
+			$this->title = '博文管理';
+			$this->navi = ['Blist'=>'博文模块','博文管理'];
+			$this->display();
+
 		}
 		/**
 		 * 删除博文
@@ -39,6 +55,28 @@
 			}else{
 				$this->success('删除成功！',U('Blist/index',3));
 			}
+		}
+
+		public function editHandle()
+		{
+			$aid = I('post.aid'); 
+			if(!IS_POST){
+				$this->error('页面不存在！',U('index'),5);
+				return;
+			}
+			$data = [];
+			$data['cid'] = I('post.cid','');
+			$data['keywords'] = I('post.keywords','','htmlspecialchars');
+			$data['preread'] = I('post.preread','','htmlspecialchars');
+			$data['content'] = I('post.content','','htmlspecialchars');
+			$data['status'] = I('post.status','1');
+
+			$res = M('article')->where(['aid'=>$aid])->save($data);
+			if($res) 
+				$this->success('文章编辑成功！',U('Blist/index'),3);
+			else
+				$this->error('文章编辑失败！',U('index'),5);
+			return;
 		}
 	}
 ?>

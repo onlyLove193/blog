@@ -7,7 +7,8 @@ class BlogController extends CommonController{
 	 * @return [type] [description]
 	 */
 	public function index(){
-		$cat = M('category')->field(array('gid','cname','pid'))->select();
+		$cat = M('category')->field(array('gid','cname','pid'))->where(['status'=>1])->select();
+		$this->author = M('author')->field(['tid','uname'])->select();
 		$this->cat = getRow($cat);
 		$this->title = '发表博文';
 		$this->navi = ['Blist'=>'博文模块','Blog'=>'发表博文'];
@@ -56,10 +57,11 @@ class BlogController extends CommonController{
 		$aimg = session('aimg');
 		session('aimg','');
 		$data['uname'] = I('post.uname','','addslashes,htmlspecialchars');
-		$author = M('author');
-		$auid = $author->where($data)->getField('tid');
-		if(!$auid){
+		if(!is_numeric($data['uname'])){
+			$author = M('author');
 			$auid = $author->data($data)->add();
+		}else{
+			$auid = $data['uname'];
 		}
 		$article = M('article');
 		$data = $article->create($_POST);

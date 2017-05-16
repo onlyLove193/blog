@@ -12,7 +12,8 @@ $(function(){
     $(".imglist li").click(function(){
         $(".imglist li.selected").removeClass("selected")
         $(this).addClass("selected");
-    })  
+    });
+    
 })  
 </script>
 <script type="text/javascript">
@@ -85,12 +86,12 @@ $(document).ready(function(){
         <td>{$v.gid}</td>
         <td>{$v.cname}</td>
         <td>{$v.pid}</td>
-        <td><a href="{:U('cshow',array('gid'=>$v['gid']),'')}" class="tablelink">查看</a><a href="{:U('cdelete',array('gid'=>$v['gid']),'')}" class="tablelink"> 删除</a></td>
+        <td><a href="{:U('cshow',array('gid'=>$v['gid']),'')}" class="tablelink">查看</a><a href="{:U('cdelete',array('gid'=>$v['gid']),'')}" class="tablelink" id="catedel"> 删除</a></td>
         </tr>
         
     </foreach>
     
-        <tr><td colspan="7" align="center"><div class="page">{$page}</div></td></tr>
+        <tr class="pa_tr"><td colspan="7" align="center"><div class="page">{$page}</div></td></tr>
     </tbody>
     
     </table>
@@ -120,6 +121,15 @@ $(document).ready(function(){
     
 <script type="text/javascript">
     $('.imgtable tbody tr:odd').addClass('odd');
+    $('a#catedel').click(function(event){
+        event.preventDefault();
+        
+        var res = confirm("确认删除");
+        if(res){
+            window.location.href = $(this).attr('href');
+        }
+        return;
+    });
     </script>
 </body>
 </html>

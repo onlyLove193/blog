@@ -79,7 +79,8 @@ $(document).ready(function(){
         <td>{$v.tid}</td>
         <td>{$v.uname}</td>
         <td>已审核</td>
-        <td><a href="{:U('uflock',array('tid'=>$v['tid']),'')}" class="tablelink">锁定</a>     <a href="{:U('udelete',array('tid'=>$v['tid']),'')}" class="tablelink"> 删除</a></td>
+        <td><if condition="$v[status] eq 1"><a href="{:U('uflock',array('tid'=>$v['tid']),'')}" class="tablelink">锁定</a> <else/>
+        <a href="{:U('uflock',array('tid'=>$v['tid']),'')}" class="tablelink">解锁</a></if>    <a href="{:U('udelete',array('tid'=>$v['tid']),'')}" class="tablelink"> 删除</a></td>
         </tr> 
         </foreach>
            <tr><td colspan="7" align="center">{$page}</td></tr>    

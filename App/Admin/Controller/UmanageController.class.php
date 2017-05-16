@@ -23,9 +23,9 @@
 		public function udelete(){
 			$tid = I('get.tid','','intval');
 			$article = M('article');
-			$res = $article->where('auid='.$tid)->delete();
-			if(!$res){
-				$this->error('用户博文删除失败！',U('Ulist/index'),5);
+			$res = $article->where('auid='.$tid)->select();
+			if($res){
+				$this->error('删除失败！请先删除该用户博文',U('Ulist/index'),5);
 				return;
 			}
 			$res = M('author')->where('tid='.$tid)->delete();
@@ -43,12 +43,23 @@
 		public function uflock(){
 			$tid = I('get.tid','','intval');
 			$author = M('author');
-			$data = array('status'=>0);
-			$res = $author->where('tid='.$tid)->save($data);
-			if(!$res){
-				$this->error('锁定失败！',U('Umanage/index'),5);
+			$status = $author->where(['tid'=>$tid])->getField('status');
+			if(!$status){
+				$data = array('status'=>1);
+				$res = $author->where('tid='.$tid)->save($data);
+				if(!$res){
+					$this->error('解锁失败！',U('Umanage/index'),5);
+				}else{
+					$this->success('解锁成功！',U('Ulist/index',3));
+				}
 			}else{
-				$this->success('锁定成功！',U('Ulist/index',3));
+				$data = array('status'=>0);
+				$res = $author->where('tid='.$tid)->save($data);
+				if(!$res){
+					$this->error('锁定失败！',U('Umanage/index'),5);
+				}else{
+					$this->success('锁定成功！',U('Ulist/index',3));
+				}
 			}
 		}
 	}

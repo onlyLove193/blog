@@ -58,7 +58,16 @@
     <ul class="forminfo">
     <form id="total">
     <li><label>标题<b>:</b></label><input name="title" type="text" class="dfinput" value="" style="width:320px;" /></li>
-   <li><label>发布者<b>:</b></label><input name="uname" type="text" class="dfinput" value="" style="width:320px;" /></li>
+   <li><label>发布者<b>:</b></label>
+        <div class="vocation">
+        <select class="select1" name="uname">
+        <option select="uname">作者</option>
+        <foreach name="author" item="v">
+        <option value="{$v.tid}">{$v.uname}</option>
+        </foreach>
+        </select>
+        </div>
+   </li>
     <li><label>文章类别<b>:</b></label>  
     <div class="vocation">
     <select class="select1" name="select">
@@ -98,11 +107,10 @@
     
     <script type="text/javascript">
 	$('.tablelist tbody tr:odd').addClass('odd');
+    $(".vocation:eq(0)").dblclick(function(){
+        $(this).parent().find("div").remove().end().append("<input name=\"uname\" type=\"text\" class=\"dfinput\" value=\"\" style=\"width:320px;\" />");
+    });
 	</script>
-    
-    
-    
-    
     
     </div>
 
