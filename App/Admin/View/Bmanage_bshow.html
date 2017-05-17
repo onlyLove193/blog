@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$title}</title>
+<link href="__PUBLIC__/css/style.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/css/select.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/upload.css">
+<script type="text/javascript" src="__PUBLIC__/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/select-ui.min.js"></script>
+<script type="text/javascript" src="__ROOT__/Data/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="__ROOT__/Data/ueditor/ueditor.all.js"></script>
+<script type="text/javascript">
+    var URL = '/Data/ueditor/'
+</script>
+<script type="text/javascript">
+    var path = '__CONTROLLER__';
+    $(document).ready(function(e) {
+        $(".select1").uedSelect({
+            width : 320           
+        });
+        var ue = UE.getEditor('container',{
+        initialFrameWidth:960,
+        initialFrameHeight:300
+        });
+    });
+</script>
+</head>
+
+<body>
+    <div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+    <li><a href="{:U('Index/main')}">首页</a></li>
+    <foreach name="navi" key="k" item="v">
+        <if condition="$v === $title"> <li><a href="#">{$v}</a></li>
+        <else /> <li><a href="{:U(\"".$k."/index\")}">{$v}</a></li>
+        </if>
+    </foreach>
+    </ul>
+    </div>
+    
+    <div class="formbody">
+    
+    
+    <div id="usual1" class="usual"> 
+    
+    <div class="itab">
+    <ul> 
+    <li><a href="#tab1" class="selected">修改博文</a></li> 
+    </ul>
+    </div> 
+    
+    <div id="tab1" class="tabson">
+    
+    <div class="formtext">Hi，<b>{$Think.session.name}</b>，欢迎您使用信息发布功能！</div>
+    
+    <ul class="forminfo">
+    <form id="total" action="{:U('editHandle')}" method="post">
+    <li><label>标题<b>:</b></label><input name="title" type="text" class="dfinput" value="{$article.title}" style="width:320px;" disabled="disabled" /></li>
+   <li><label>发布者<b>:</b></label>
+        <input name="title" type="text" class="dfinput" value="{$article.author}" style="width:320px;" disabled="disabled" />
+   </li>
+    <li><label>文章类别<b>:</b></label>  
+    <div class="vocation">
+    <select class="select1" name="cid">
+    <option>文章分类</option>
+    <foreach name="category" item="v">
+    <if condition="$article['gid'] eq $v['gid']">
+    <option value="{$article.gid}" selected="selected">{$v.level|str_repeat="&nbsp;&nbsp;&nbsp;&nbsp;",###}{$v.cname}</option>
+    <else/>
+    <option value="{$v.gid}">{$v.level|str_repeat="&nbsp;&nbsp;&nbsp;&nbsp;",###}{$v.cname}</option>
+    </if>
+    </foreach>
+    </select>
+    </div>
+    
+    </li>
+    
+    <li><label>关键字<b>:</b></label><input name="keywords" type="text" class="dfinput" value="{$article.keywords}" style="width:320px;" />
+    </li>
+    <li><label>描述<b>:</b></label><textarea name="preread" style="width:320px;height:60px;border:1px solid #ccc;">{$article.preread}</textarea>
+    </li>
+    <li id="status"><label>状态<b>:</b></label>
+    <if condition="$article['status'] eq 1">
+    <input name="status" type="radio" style="position:relative;top:4px;" value="1" checked="checked" />&nbsp;可见&nbsp;&nbsp;&nbsp;&nbsp;<input name="status" style="position:relative;top:4px;" type="radio" value="0" />&nbsp;不可见
+    <else/>
+   <input name="status" type="radio" style="position:relative;top:4px;" value="1" />&nbsp;可见&nbsp;&nbsp;&nbsp;&nbsp;<input name="status" style="position:relative;top:4px;" type="radio" value="0" checked="checked" />&nbsp;不可见
+    </if>
+    </li>
+    <li id="edi"><label>文章类容<b>:</b></label>
+    <textarea id="container" clas="showCont" name="content" style="position:relative;left:86px">{$article.content}</textarea>
+    </li>
+    <li><input type="hidden" name="aid" value="{$article.aid}" /></li>
+    <li><label>&nbsp;</label><input name="button" id="btn" type="submit" class="btn" value="  确认修改"/></li>
+    </form>
+    </ul>
+    
+    </div> 
+    </div> 
+ 
+    <script type="text/javascript"> 
+      $("#usual1 ul").idTabs(); 
+    </script>
+    
+    <script type="text/javascript">
+    $('.tablelist tbody tr:odd').addClass('odd');
+    </script>
+    
+    </div>
+
+</body>
+</html>

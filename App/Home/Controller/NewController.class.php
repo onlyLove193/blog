@@ -1,8 +1,10 @@
 <?php
 namespace Home\Controller;
 use Think\Controller;
-class NewController extends Controller{
-	public function index(){
+class NewController extends Controller
+{
+	public function index()
+	{
 		$article = M('article');
 		$def = $article->field('aid')->order('wtime desc')->limit(1)->find();
 		//获取显示文章ID
@@ -25,11 +27,15 @@ class NewController extends Controller{
 		// $smap['aid'] = ['eq',$id]; 
 		$subSql = $article->field('cid')->where('aid = '.$id)->select(false);
 		$map['cid'] = array('eq','('.$subSql.')');
-		$relatives = $article->field(['aid','title'])->where('cid = ('.$subSql.')')->order('wtime desc')->limit(5)->select();
+		$this->relatives = $article->field(['aid','title'])->where('cid = ('.$subSql.')')->order('wtime desc')->limit(5)->select();
 		// $relatives = $article->field(['aid','title'])->where($map)->order('wtime desc')->limit(5)->select();
-		$this->relatives = $relatives;
 
 		$this->display(); // 输出模板
+	}
+
+	public function comment()
+	{
+		print_r($_POST);
 	}
 }
 ?>

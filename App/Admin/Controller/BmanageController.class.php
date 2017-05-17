@@ -8,10 +8,13 @@
 		 */
 		public function index(){
 			$article = M('article');
-			$count = $article->where('status=1')->order('wtime desc')->count();
+			$count = $article->order('wtime desc')->count();
 			$page = getpage($count,10);
 			$show = $page->show();
-			$this->list = $article->join('bl_author on bl_author.tid=bl_article.auid')->where('bl_article.status=1')->order('wtime desc')->limit($page->firstRow.','.$page->listRows)->select();
+			$field = [
+				'bl_article.aid'=>'aid','bl_article.title'=>'title','bl_article.status'=>'status','bl_article.wtime'=>'wtime','bl_author.uname'=>'author'
+			];
+			$this->list = $article->field($field)->join('bl_author on bl_author.tid=bl_article.auid')->order('wtime desc')->limit($page->firstRow.','.$page->listRows)->select();
 			$this->assign('page',$show);
 			$this->title = '博文管理';
 			$this->navi = ['Blist'=>'博文模块','博文管理'];
@@ -34,7 +37,7 @@
 			 */
 			$this->article = M('article')->field($field)->join('bl_author on bl_article.auid=bl_author.tid')->join('bl_category on bl_article.cid=bl_category.gid')->where(['aid'=>$aid])->find();
 
-			$category = M('category')->select();
+			$category = M('category')->where(['status'=>1])->select();
 			$this->category = getRow($category);
 			$this->title = '博文管理';
 			$this->navi = ['Blist'=>'博文模块','博文管理'];

@@ -69,6 +69,7 @@ class BlogController extends CommonController{
 		$data['cid'] = I('post.select','','intval');
 		$data['aimg'] = '/Data/Upload/'.$aimg['savepath'].$aimg['savename'];
 		$data['wtime'] = time();
+		$data['content'] = strip_tags($data['content']);
 		$res = $article->add($data);
 		
 		if(!$res){

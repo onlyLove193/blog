@@ -5,7 +5,7 @@ class CateAddController extends CommonController
 {
 	public function index()
 	{
-		$cat = M('category')->field(array('gid','cname','pid'))->select();
+		$cat = M('category')->field(array('gid','cname','pid'))->where(['status'=>1])->select();
 		$this->cat = getRow($cat);
 		
 		$this->title = '添加栏目';

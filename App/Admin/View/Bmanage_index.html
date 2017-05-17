@@ -81,9 +81,9 @@ $(document).ready(function(){
         <td><input name="" type="checkbox" value="" /></td>
         <td>{$v.aid}</td>
         <td>{$v.title}</td>
-        <td>{$v.uname}</td>
+        <td>{$v.author}</td>
         <td>{$v.wtime|date="Y-m-d H:i:s",###}</td>
-        <td>已审核</td>
+        <td><if condition="$v['status'] eq 1">已审核<else/><span style="color:red;">待审核</span></if></td>
         <td><a href="{:U('bshow',array('aid'=>$v['aid']),'')}" class="tablelink">查看</a>     <a href="{:U('bdelete',array('aid'=>$v['aid']),'')}" class="tablelink"> 删除</a></td>
         </tr> 
         </foreach>

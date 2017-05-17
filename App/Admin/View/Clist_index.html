@@ -87,7 +87,7 @@ $(document).ready(function(){
         <td>{$v.pid}</td>
         <td>
             <if condition="$v['status'] eq 1"> 开通
-            <else/> 关闭
+            <else/> <span style="color:red;">关闭</span>
             </if>
         </td>
         </tr>
