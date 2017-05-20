@@ -12,6 +12,8 @@
 			$show = $page->show();
 			$this->list = $article->join('bl_author on bl_author.tid=bl_article.auid')->where('bl_article.status=0')->order('wtime desc')->limit($page->firstRow.','.$page->listRows)->select();
 			$this->assign('page',$show);
+			$this->title = '回收站';
+			$this->navi = ["Trail"=>'其它模块','回收站'];
 			$this->display();
 		}
 		/**

@@ -32,7 +32,7 @@
       <p class="box_c"><span class="d_time">发布时间：{$res.wtime|date="Y-m-d",###}</span><span>编辑：{$res.uname}</span><span>浏览（390）</span><span>评论览（14）</span></p>
       <ul class="infos">
         <p><img src="{$res.aimg}" alt="{$res.keywords}"></p>
-        {$res.content}
+        {$res.content|htmlspecialchars_decode}
       </ul>
       <div class="keybq">
         <p><span>关键字词</span>：{$res.keywords}</p>
@@ -73,11 +73,11 @@
 
               // console.info("填写内容返回值：");
 
-              // console.info(comment);
+              console.info(comment);
               $.ajax({
-                method:'post',
+                type:'post',
                 url:url,
-                data:{comment},
+                data:comment,
                 dataType:'json',
                 success:function(){
 

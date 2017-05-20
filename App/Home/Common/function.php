@@ -1,5 +1,6 @@
 <?php
 function getCont($str,$len){
+	$str = htmlspecialchars_decode($str);
 	if(strlen($str) <= $len){
 		return $str;
 	}else{

@@ -8,7 +8,7 @@ class BlogController extends CommonController{
 	 */
 	public function index(){
 		$cat = M('category')->field(array('gid','cname','pid'))->where(['status'=>1])->select();
-		$this->author = M('author')->field(['tid','uname'])->select();
+		$this->author = M('author')->field(['tid','uname'])->where(['status'=>1])->select();
 		$this->cat = getRow($cat);
 		$this->title = '发表博文';
 		$this->navi = ['Blist'=>'博文模块','Blog'=>'发表博文'];

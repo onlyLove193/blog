@@ -51,13 +51,26 @@
 		public function bdelete(){
 			$aid = I('get.aid','','intval');
 			$article = M('article');
-			$data = array('status'=>0);
-			$res = $article->where('aid='.$aid)->save($data);
-			if(!$res){
-				$this->error('删除失败！','bdelete',5);
+			$status = $article->field(['status'])->where(['aid'=>$aid])->find();
+			if($status['status']){
+				$data = array('status'=>0);
+				$res = $article->where('aid='.$aid)->save($data);
+				if(!$res){
+					$this->error('删除失败！','bdelete',5);
+				}else{
+					$this->success('删除成功！',U('Blist/index',3));
+				}
 			}else{
-				$this->success('删除成功！',U('Blist/index',3));
+				$res = $article->where(['aid'=>$aid])->delete();
+				if(!$res){
+					$this->error('删除失败！','bdelete',5);
+				}else{
+					$this->success('删除成功！',U('Blist/index',3));
+				}
+
 			}
+			return;
+
 		}
 
 		public function editHandle()

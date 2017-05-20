@@ -35,7 +35,11 @@ class NewController extends Controller
 
 	public function comment()
 	{
-		print_r($_POST);
+		if(! IS_POST){
+			$this->error('页面不存在！',U('index'),5);
+			return;
+		}
+		
 	}
 }
 ?>
