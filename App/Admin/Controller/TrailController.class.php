@@ -7,10 +7,10 @@
 		 */
 		public function index(){
 			$article = M('article');
-			$count = $article->where('status=0')->order('wtime desc')->count();
+			$count = $article->where(['status'=>2])->order('wtime desc')->count();
 			$page = getpage($count,10);
 			$show = $page->show();
-			$this->list = $article->join('bl_author on bl_author.tid=bl_article.auid')->where('bl_article.status=0')->order('wtime desc')->limit($page->firstRow.','.$page->listRows)->select();
+			$this->list = $article->join('bl_author on bl_author.tid=bl_article.auid')->where(['bl_article.status'=>2])->order('wtime desc')->limit($page->firstRow.','.$page->listRows)->select();
 			$this->assign('page',$show);
 			$this->title = '回收站';
 			$this->navi = ["Trail"=>'其它模块','回收站'];
@@ -24,9 +24,9 @@
 			$article = M('article');
 			$res = $article->where('aid='.$aid)->delete();
 			if(!$res){
-				$this->error('移出失败！','bdelete',5);
+				$this->error('删除失败！','bdelete',5);
 			}else{
-				$this->success('移出成功！',U('Blist/index',3));
+				$this->success('删除成功！',U('Blist/index',3));
 			}
 		}
 		/**

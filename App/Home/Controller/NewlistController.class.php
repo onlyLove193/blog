@@ -2,7 +2,8 @@
 namespace Home\Controller;
 use Think\Controller;
 class NewlistController extends Controller{
-	public function index(){
+	public function index()
+	{
 		//文章分页处理
 		$article = M('article');
 		$count = $article->where('status = 1')->count();

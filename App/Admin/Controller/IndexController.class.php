@@ -1,5 +1,6 @@
 <?php
 namespace Admin\Controller;
+
 class IndexController extends CommonController {
     /**
      * 后台首页框架

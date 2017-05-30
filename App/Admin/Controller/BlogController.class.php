@@ -1,6 +1,6 @@
 <?php
 namespace Admin\Controller;
-use Admin\Controller;
+
 class BlogController extends CommonController{
 	/**
 	 * 发表博文表单页面

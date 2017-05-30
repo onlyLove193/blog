@@ -58,9 +58,12 @@
 					item += '		<img src="/public/images/foot.png">';
 					item += '	</a>';
 					item += '	<div class="content '+topStyle+'">';
-					item += '		<a class="author"> '+v.userName+' </a>';
+					item += '		<a class="author"> '+v.user_name+' </a>';
 					item += '		<div class="metadata">';
-					item += '			<span class="date"> '+v.time+' </span>';
+					item += '			<span class="date"> '+(function(obj){
+						var obj = new Date(parseInt(v.time+'000'));
+						return obj.getFullYear()+'-'+(obj.getMonth()+1)+'-'+obj.getDate()+' '+obj.getHours()+':'+obj.getMinutes();
+					}(v.time))+' </span>';
 					item += '		</div>';
 					item += '		<div class="text"> '+v.content+' </div>';
 					item += '		<div class="actions">';
@@ -70,19 +73,19 @@
 					item += '</div>';
 					
 					// 判断此条评论是不是子级评论
-					if(v.sortID==0){  // 不是
+					if(v.sort_id==0){  // 不是
 						$("#commentItems").append(item);
 					}else{  // 否
 						// 判断父级评论下是不是已经有了子级评论
-						if($("#comment"+v.sortID).find(".comments").length==0){  // 没有
+						if($("#comment"+v.sort_id).find(".comments").length==0){  // 没有
 							var comments = '';
-							comments += '<div id="comments'+v.sortID+'" class="comments">';
+							comments += '<div id="comments'+v.sort_id+'" class="comments">';
 							comments += 	item;
 							comments += '</div>';
 							
-							$("#comment"+v.sortID).append(comments);
+							$("#comment"+v.sort_id).append(comments);
 						}else{  // 有
-							$("#comments"+v.sortID).append(item);
+							$("#comments"+v.sort_id).append(item);
 						}
 					}
 				});

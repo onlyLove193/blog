@@ -1,6 +1,7 @@
 <?php
 function getCont($str,$len){
 	$str = htmlspecialchars_decode($str);
+	$str = strip_tags($str);
 	if(strlen($str) <= $len){
 		return $str;
 	}else{

@@ -14,7 +14,7 @@
 			$field = [
 				'bl_article.aid'=>'aid','bl_article.title'=>'title','bl_article.status'=>'status','bl_article.wtime'=>'wtime','bl_author.uname'=>'author'
 			];
-			$this->list = $article->field($field)->join('bl_author on bl_author.tid=bl_article.auid')->order('wtime desc')->limit($page->firstRow.','.$page->listRows)->select();
+			$this->list = $article->field($field)->join('bl_author on bl_author.tid=bl_article.auid')->where(['bl_article.status'=>['lt',2]])->order('wtime desc')->limit($page->firstRow.','.$page->listRows)->select();
 			$this->assign('page',$show);
 			$this->title = '博文管理';
 			$this->navi = ['Blist'=>'博文模块','博文管理'];
@@ -53,7 +53,7 @@
 			$article = M('article');
 			$status = $article->field(['status'])->where(['aid'=>$aid])->find();
 			if($status['status']){
-				$data = array('status'=>0);
+				$data = array('status'=>2);
 				$res = $article->where('aid='.$aid)->save($data);
 				if(!$res){
 					$this->error('删除失败！','bdelete',5);

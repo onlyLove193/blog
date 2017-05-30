@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$title}</title>
+<link href="__PUBLIC__/css/style.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/css/select.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/upload.css">
+<script type="text/javascript" src="__PUBLIC__/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/select-ui.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/jquery.form.js"></script>
+<script type="text/javascript">
+    var path = '__CONTROLLER__';
+    $(document).ready(function(e) {
+        $(".select1").uedSelect({
+    		width : 320			  
+    	});
+    });
+</script>
+</head>
+
+<body>
+	<div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+    <li><a href="{:U('Index/main')}">首页</a></li>
+    <foreach name="navi" key="k" item="v">
+        <if condition="$v === $title"> <li><a href="#">{$v}</a></li>
+        <else /> <li><a href="{:U(\"".$k."/index\")}">{$v}</a></li>
+        </if>
+    </foreach>
+    </ul>
+    </div>
+    
+    <div class="formbody">
+    
+    
+    <div id="usual1" class="usual"> 
+    
+    <div class="itab">
+  	<ul> 
+    <li><a href="#tab1" class="selected">查看评论</a></li> 
+  	</ul>
+    </div> 
+    
+  	<div id="tab1" class="tabson">
+    
+    <div class="formtext">Hi，<b>{$Think.session.name}</b>，欢迎您审核评论内容</div>
+    
+    <ul class="forminfo">
+    <form id="total" method="post" action="">
+    <li><label>文章标题<b>:</b></label><input name="cname" type="text" class="dfinput" value="{$data.title}" style="width:320px;" readonly="readonly" /></li>
+    <li><label>评论人<b>:</b></label><input name="cname" type="text" class="dfinput" value="{$data.name}" style="width:320px;" readonly="readonly" /></li>
+    
+    <li><label>邮箱<b>:</b></label><input name="keywords" type="text" class="dfinput" value="{$data.email}" style="width:320px;" readonly="readonly" />
+    </li>
+    <li><label>IP地址<b>:</b></label><input name="cname" type="text" class="dfinput" value="{$data.ip}" style="width:320px;" readonly="readonly" /></li>
+    <li><label>时间<b>:</b></label><input name="cname" type="text" class="dfinput" value="{$data.time|date='Y-m-d H:i:s',###}" style="width:320px;" readonly="readonly" /></li>
+    <li><label>评论内容<b>:</b></label><textarea name="descript" style="width:320px;height:60px;border:1px solid #ccc;" readonly="readonly">{$data.content}</textarea>
+    </li>
+    <li><label>&nbsp;</label><input name="button" id="btn" type="submit" class="btn" value="联系评论者"/></li>
+    </form>
+    </ul>
+    
+    </div> 
+    </div> 
+ 
+	<script type="text/javascript"> 
+      $("#usual1 ul").idTabs(); 
+    </script>
+    
+    <script type="text/javascript">
+	$('.tablelist tbody tr:odd').addClass('odd');
+    $('#total').submit(function(){
+        return false;
+        }
+    });
+	</script>
+    
+    
+    
+    
+    
+    </div>
+
+</body>
+</html>

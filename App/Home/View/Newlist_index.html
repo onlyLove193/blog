@@ -10,7 +10,7 @@
           <ul>
             <h3><a href="{:U('New/index',['id'=>$v['aid']])}">{$v.title}</a></h3>
             <div class="autor"><span>作者：{$v.uname}</span><span>分类：[<a href="/">{$v.cname}</a>]</span><span>浏览（<a href="/">459</a>）</span><span>评论（<a href="/">30</a>）</span></div>
-            <p>{$v.content|getCont=450} <a href="{:U('New/index',['id'=>$v['aid']])}" target="_blank" class="readmore">全文</a></p>
+            <p>{$v.content|getCont=200} <a href="{:U('New/index',['id'=>$v['aid']])}" target="_blank" class="readmore">全文</a></p>
           </ul>
           <figure><img src="{$v.aimg}" ></figure>
           <div class="dateview">{$v.wtime|date='Y-m-d',###}</div>

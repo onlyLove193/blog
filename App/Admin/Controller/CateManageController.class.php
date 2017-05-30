@@ -56,8 +56,15 @@ class CateManageController extends CommonController
 		$cat = M('category')->field(array('gid','cname','pid'))->select();
 		
 		$self = getRow($cat,$gid);
+		//存在子栏目部允许删除
 		if(!empty($self)){
 			$this->error('该栏目存在子栏目，不允许删除！',U('index'),5);
+			return;
+		}
+		//栏目下存在文章不允许删除
+		$artilceNum = M('article')->where(['cid'=>$gid])->count();
+		if($artilceNum){
+			$this->error('该栏目下存在文章，请先删除文章再删除！',U('index'),5);
 			return;
 		}
 		$res = M('category')->where(['gid'=>$gid])->delete();

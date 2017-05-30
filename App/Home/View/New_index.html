@@ -2,25 +2,25 @@
 <body>
 <style type="text/css" media="print, screen">  
 
-  label {
+label {
 
-      font-weight: bold;
-  }
+  font-weight: bold;
+}
 
-  a {
+a {
 
-    font-family: Microsoft YaHei;
+  font-family: Microsoft YaHei;
 
-  }
+}
 
-  #articleComment {
+#articleComment {
 
-    width: 600px;
+  width: 600px;
 
-    height: auto;
+  height: auto;
 
-    overflow: auto;
-  }
+  overflow: auto;
+}
 
 </style> 
 <div class="ibody">
@@ -37,29 +37,31 @@
       <div class="keybq">
         <p><span>关键字词</span>：{$res.keywords}</p>
       </div>
+      <input type="hidden" name="aid" value="{$res.aid}">
         <div id="articleComment"></div>
 
         <script type="text/javascript" src="__PUBLIC__/js/jquery-1.7.2.min.js"></script>
 
         <script type="text/javascript" src="__PUBLIC__/js/zyComment.js"></script>
-
+        <script>var agoComment={$comment};</script>
         <script type="text/javascript">
             var url = '__CONTROLLER__'+'/comment',
-          agoComment = [
+                aid = $("input[type=hidden]:eq(0)").val();
+          // agoComment = [
 
-          {"id":1,"userName":"游客1","time":"2014-04-04","sortID":0,"content":"第一条评论"},
+          // {"id":1,"userName":"游客1","time":"2014-04-04","sortID":0,"content":"第一条评论"},
 
-          {"id":2,"userName":"游客2","time":"2014-04-04","sortID":0,"content":"第二条评论"},
+          // {"id":2,"userName":"游客2","time":"2014-04-04","sortID":0,"content":"第二条评论"},
 
-          {"id":3,"userName":"站长","time":"2014-04-04","sortID":1,"content":"第一条评论的回复"},
+          // {"id":3,"userName":"站长","time":"2014-04-04","sortID":1,"content":"第一条评论的回复"},
 
-          {"id":4,"userName":"站长","time":"2014-04-04","sortID":2,"content":"第二条评论的回复"},
+          // {"id":4,"userName":"站长","time":"2014-04-04","sortID":2,"content":"第二条评论的回复"},
 
-          {"id":5,"userName":"游客3","time":"2014-04-04","sortID":0,"content":"第三条评论"},
+          // {"id":5,"userName":"游客3","time":"2014-04-04","sortID":0,"content":"第三条评论"},
 
-          {"id":6,"userName":"游客2","time":"2014-04-04","sortID":4,"content":"第二条评论的回复的回复"},
+          // {"id":6,"userName":"游客2","time":"2014-04-04","sortID":4,"content":"第二条评论的回复的回复"},
 
-          ];
+          // ];
 
           $("#articleComment").zyComment({
 
@@ -73,19 +75,26 @@
 
               // console.info("填写内容返回值：");
 
-              console.info(comment);
+              // console.info(comment);
+              
+              if(!comment.email){
+                alert("邮箱不能为空！");
+                return;
+              }
               $.ajax({
                 type:'post',
                 url:url,
-                data:comment,
+                data:{'name':comment.name,'email':comment.email,'pcode':comment.pCode,'content':comment.content,'aid':aid},
                 dataType:'json',
-                success:function(){
-
+                success:function(e){
+                  if(e.status){
+                    $("#articleComment").zyComment("setCommentAfter",{"id":e.id, "name":comment.name, "content":comment.content, "time":e.time});
+                  }else{
+                    alert(e.info);
+                  }
                 }
               });
               return;
-      // 添加新的评论
-      $("#articleComment").zyComment("setCommentAfter",{"id":123, "name":"sss", "content":"content", "time":"2014-04-14"});
     }
   });
 </script>

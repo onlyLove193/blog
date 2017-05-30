@@ -2,11 +2,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>{$this->title}</title>
+<title>{$title}</title>
 <link href="__PUBLIC__/css/style.css" rel="stylesheet" type="text/css" />
 <link href="__PUBLIC__/css/page.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
-
+<script language="javascript">
+$(function(){	
+	//导航切换
+	$(".imglist li").click(function(){
+		$(".imglist li.selected").removeClass("selected")
+		$(this).addClass("selected");
+	})	
+})	
+</script>
 <script type="text/javascript">
 $(document).ready(function(){
   $(".click").click(function(){
@@ -27,19 +35,18 @@ $(document).ready(function(){
 
 });
 </script>
-
-
 </head>
 
 
 <body>
-
 	<div class="place">
     <span>位置：</span>
     <ul class="placeul">
-    <li><a href="#">首页</a></li>
-    <foreach name="navi" key="k" item="v"> 
-    <li><a href="{:U($k)}">{$v}</a></li>
+    <li><a href="{:U('Index/main')}">首页</a></li>
+    <foreach name='navi' item='v' key="k">
+        <if condition="$v === $title"> <li><a href="#">{$v}</a></li>
+        <else /> <li><a href="{:U(\"".$k."/index\")}">{$v}</a></li>
+        </if>
     </foreach>
     </ul>
     </div>
@@ -61,50 +68,41 @@ $(document).ready(function(){
     </div>
     
     
-    <table class="tablelist">
-    	<thead>
-    	<tr>
-        <th><input name="" type="checkbox" value="" checked="checked"/></th>
-        <th>编号<i class="sort"><img src="__PUBLIC__/images/px.gif" /></i></th>
-        <th>标题</th>
-        <th>用户</th>
-        <th>发布时间</th>
-        <th>是否审核</th>
-        <th>操作</th>
-        </tr>
-        </thead>
-        <tbody>
-        <foreach name="list" item="v" key="k"> 
+    <table class="imgtable">
+    
+    <thead>
+    <tr>
+    <th>评论ID</th>
+    <th>文章标题</th>
+    <th>评论者</th>
+    <th>评论者邮箱</th>
+    <th>评论IP</th>
+    <th>评论日期</th>
+    <th>操作</th>
+    </tr>
+    </thead>
+    
+    <tbody>
+    <foreach name="list" item="v" key="k">
         <tr>
-        <td><input name="" type="checkbox" value="" /></td>
-        <td>{$v.aid}</td>
+        <td>{$v.cid}</td>
         <td>{$v.title}</td>
-        <td>{$v.uname}</td>
-        <td>{$v.wtime|date="Y-m-d H:i:s",###}</td>
-        <td>已审核</td>
-        <td><a href="{:U('Trecover',array('aid'=>$v['aid']),'')}" class="tablelink">移出</a>     <a href="{:U('Tdelete',array('aid'=>$v['aid']),'')}" class="tablelink"> 删除</a></td>
-        </tr> 
-        </foreach>
-           <tr><td colspan="7" align="center"><div class="page">{$page}</div></td></tr>   
-        </tbody>
+        <td>{$v.name}</td>
+        <td>{$v.email}</td>
+        <td>{$v.ip}</td>
+        <td>{$v.time|date='Y-m-d H:i:s',###}</td>
+        <td>
+            <a href="{:U('comManage',array('id'=>$v['cid']),'')}" class="tablelink">查看</a>
+            |<a href="{:U('comDelete',array('id'=>$v['cid']),'')}" class="tablelink"> 删除</a>
+        </td>
+        </tr>
+        
+    </foreach>
+    
+        <tr><td colspan="7" align="center"><div class="page">{$page}</div></td></tr>
+    </tbody>
+    
     </table>
-    
-   
-    <!--div class="pagin">
-    	<div class="message">共<i class="blue">1256</i>条记录，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页</div>
-        <ul class="paginList">
-        <li class="paginItem"><a href="javascript:;"><span class="pagepre"></span></a></li>
-        <li class="paginItem"><a href="javascript:;">1</a></li>
-        <li class="paginItem current"><a href="javascript:;">2</a></li>
-        <li class="paginItem"><a href="javascript:;">3</a></li>
-        <li class="paginItem"><a href="javascript:;">4</a></li>
-        <li class="paginItem"><a href="javascript:;">5</a></li>
-        <li class="paginItem more"><a href="javascript:;">...</a></li>
-        <li class="paginItem"><a href="javascript:;">10</a></li>
-        <li class="paginItem"><a href="javascript:;"><span class="pagenxt"></span></a></li>
-        </ul>
-    </div-->
-    
     
     <div class="tip">
     	<div class="tiptop"><span>提示信息</span><a></a></div>
@@ -129,8 +127,8 @@ $(document).ready(function(){
     
     </div>
     
-    <script type="text/javascript">
-	$('.tablelist tbody tr:odd').addClass('odd');
+<script type="text/javascript">
+	$('.imgtable tbody tr:odd').addClass('odd');
 	</script>
 </body>
 </html>
